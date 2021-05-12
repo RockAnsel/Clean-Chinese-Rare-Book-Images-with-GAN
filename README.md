@@ -8,25 +8,32 @@ GAN 古籍图片清理研究
 代码正在整理中...
 
 <img align='center' src="abstract.png" />
-基于采集的古籍图片,训练CycleGAN得到的效果
+
+#### 基于采集的古籍图片,训练CycleGAN得到的效果
 <img align='center' src="pic1.png" />
-采集的数据，没有草书的图片，但在草书的古籍图片上也取得了较好的视觉效果，证明了模型有一定的泛化性
+
+#### 采集的数据，没有草书的图片，但在草书的古籍图片上也取得了较好的视觉效果，证明了模型有一定的泛化性
 <img align='center' src="pic2.png" />
-创新点是在CycleGAN中添加了边缘检测模块和相应边缘loss
+
+#### 创新点是在CycleGAN中添加了边缘检测模块和相应边缘loss
 <img align='center' src="幻灯片21.PNG" />
 
-出发点：古籍图片存在透字现象、页面脏不美观，想要将其变为类似word文档这样白底黑色的风格
-<img align='center' src="幻灯片3.PNG" />
-将问题抽象为一个无监督的图到图翻译问题
+##### 出发点：古籍图片存在透字现象、页面脏不美观，想要将其变为类似word文档这样白底黑色的风格
+<img src="幻灯片3.PNG" width = "100%"  />
+
+#### 将问题抽象为一个无监督的图到图翻译问题
 <img align='center' src="幻灯片4.PNG" />
 <img align='center' src="幻灯片16.PNG" />
 <img align='center' src="幻灯片17.PNG" />
 <img align='center' src="幻灯片18.PNG" />
-<img align='center' src="幻灯片19.PNG" />
-实验发现，生成器并不能很好的保持文字形状，但能学习到风格，推测是由于CycleGAN擅长处理纹理而不擅长处理形变所致
-因而考虑使用边缘检测，并将其作为一项loss，监督生成器去维持形状
+<img src="幻灯片19.PNG"  width = "100%" />
+
+#### 实验发现，生成器并不能很好的保持文字形状，但能学习到风格，推测是由于CycleGAN擅长处理纹理而不擅长处理形变所致
+
+#### 因而考虑使用边缘检测，并将其作为一项loss，监督生成器去维持形状
 <img align='center' src="幻灯片20.PNG" />
-<img align='center' src="幻灯片22.PNG" />
-边缘检测采用Sobel算子，边缘损失采用L1损失，乘以系数之后加入到CycleGAN原始的LossFunction中
+<img src="幻灯片22.PNG" width = "100%"  />
+
+#### 边缘检测采用Sobel算子，边缘损失采用L1损失，乘以系数之后加入到CycleGAN原始的LossFunction中
 <img align='center' src="幻灯片23.PNG" />
 <img align='center' src="幻灯片30.PNG" />
